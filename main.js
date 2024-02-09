@@ -107,7 +107,6 @@ const increment = (e) =>{
     itemPrice.innerText = total;
 
     cartItem.innerText = cartItemNumber + 1;
-    itemsTotalPrices(e);
 
     price = price + totalPriceNumber
     totalPrice.innerText = price
@@ -145,40 +144,11 @@ const decrement = (e) =>{
     }
     else if(cartItemNumber !== 0){
         cartItemText.innerText = cartItemNumber - 1;
-        itemsTotalPrices(e);
     }
 
     price = totalPriceNumber - price
     totalPrice.innerText = price
-    //console.log(totalPriceNumber, price)
 }
-
-const itemsTotalPrices = (e) =>{
-    const totalPrices = parseInt(totalPrice.innerText);
-    const itemPrice = e.parentElement.parentElement.children[1];
-    const itemPricesNumber = parseInt(itemPrice.innerText);
-    
-    // const itemPriceID = parseInt(itemPrice.id);
-    // const buttonID = parseInt(e.id)
-    // let total = 0;
-    // basket.forEach(item =>{
-    //     console.log(item,itemPriceID)
-    //     if(item.id === itemPriceID){
-    //         const search = data.find(item => item.id === itemPriceID)
-    //         const price = search.price;
-    //         console.log(price);
-    //         if(total === undefined){
-    //             total.push({
-    //                 id: buttonID,
-    //                 price: totalSearch.price
-    //             })
-    //         }
-    //         console.log(total);
-    //     }
-    // })
-
-};
-    
 
 closeBtn.addEventListener('click', ()=>{
     allItem.style.display = 'none';
@@ -188,7 +158,9 @@ closeBtn.addEventListener('click', ()=>{
 
 basketItem.addEventListener('click', () =>{
     allItem.classList.add("basket-item");
-    cardSection.classList.toggle("active");
     allItem.style.display = 'block';
+    if(allItem.style.display = 'block'){
+        cardSection.classList.add("active");
+    }
 });
 
